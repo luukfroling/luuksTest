@@ -11,4 +11,4 @@
    print("Hello from a JupyterLite console!")
 ```
 
-test 2
+test 3
