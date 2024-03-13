@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Jupyterlite-sphinx &#8212; My sample book</title>
+    <title>thebe-kernel: JupyterLite &#8212; My sample book</title>
   
   
   
@@ -68,11 +68,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyterlite-sphinx';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'testnotebook';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Thebe-test" href="testnotebook.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Jupyterlite-sphinx" href="jupyterlite-sphinx.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,8 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyterlite-sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="testnotebook.html">Thebe-test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterlite-sphinx.html">Jupyterlite-sphinx</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">thebe-kernel: JupyterLite</a></li>
+
 </ul>
 
     </div>
@@ -221,6 +221,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -246,7 +277,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fjupyterlite-sphinx.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftestnotebook.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -276,7 +307,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/jupyterlite-sphinx.md" target="_blank"
+      <li><a href="_sources/testnotebook.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +317,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -358,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Jupyterlite-sphinx</h1>
+    <h1>thebe-kernel: JupyterLite</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,9 +399,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voorbeeld-1">Voorbeeld 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installatie">Installatie</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">thebe-kernel: JupyterLite</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thebe-test">Thebe-test</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -381,21 +413,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyterlite-sphinx">
-<h1>Jupyterlite-sphinx<a class="headerlink" href="#jupyterlite-sphinx" title="Permalink to this heading">#</a></h1>
-<section id="voorbeeld-1">
-<h2>Voorbeeld 1<a class="headerlink" href="#voorbeeld-1" title="Permalink to this heading">#</a></h2>
-<iframe src="lite/repl/index.html?kernel=xeus-python&toolbar=0&theme=JupyterLab%20Light&code=print%28%22Hello%20from%20a%20JupyterLite%20console%21%22%29"width="100%" height="600px" class="jupyterlite_sphinx_raw_iframe"></iframe></section>
-<section id="installatie">
-<h2>Installatie<a class="headerlink" href="#installatie" title="Permalink to this heading">#</a></h2>
-<p>Op de website (<a class="reference external" href="https://jupyterlite-sphinx.readthedocs.io/en/latest/">https://jupyterlite-sphinx.readthedocs.io/en/latest/</a>) staat dat er 2 dingen geinstalleerd moeten worden:</p>
-<ul class="simple">
-<li><p>pip install jupyterlite-pyodide-kernel</p></li>
-<li><p>pip install jupyterlite-xeus
-De build werkt voor mij echter niet als ik jupyterlite-xeus installeer. Dan komt een mamba/conda error wat problemen geeft met pip.
-Voor dit boek zijn alleen ‘jupyterlite-pyodide-kernel’ en ‘jupyterlite-sphinx’ geinstalleerd (zie requirements.txt).</p></li>
-</ul>
+  <hr class="docutils" />
+<section id="thebe-kernel-jupyterlite">
+<h1>thebe-kernel: JupyterLite<a class="headerlink" href="#thebe-kernel-jupyterlite" title="Permalink to this heading">#</a></h1>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="thebe-test">
+<h1>Thebe-test<a class="headerlink" href="#thebe-test" title="Permalink to this heading">#</a></h1>
+<p>this is a thebe test</p>
+<div class="cell tag_auto-execute-page docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g&#39;day world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g&#39;day world
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
         <script type="text/x-thebe-config">
@@ -429,22 +465,13 @@ Voor dit boek zijn alleen ‘jupyterlite-pyodide-kernel’ en ‘jupyterlite-sph
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="jupyterlite-sphinx.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Jupyterlite-sphinx</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="testnotebook.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Thebe-test</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -461,9 +488,10 @@ Voor dit boek zijn alleen ‘jupyterlite-pyodide-kernel’ en ‘jupyterlite-sph
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voorbeeld-1">Voorbeeld 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installatie">Installatie</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">thebe-kernel: JupyterLite</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thebe-test">Thebe-test</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

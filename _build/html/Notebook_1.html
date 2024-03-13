@@ -1,0 +1,1436 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>NB1: Python for physicists, an introduction &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/code.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/jupyterlite_sphinx.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script defer="defer" src="_static/refresh.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebook_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="thebe-kernel: JupyterLite" href="testnotebook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="jupyterlite-sphinx.html">Jupyterlite-sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testnotebook.html">thebe-kernel: JupyterLite</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NB1: Python for physicists, an introduction</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNotebook_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Notebook_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="_sources/Notebook_1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NB1: Python for physicists, an introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-post-test-a-class-anchor-id-section-0-0-a">Pre/Post-test<a class="anchor" id="section_0_0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-python-errors-in-a-database">Fixing Python errors in a database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-a-class-anchor-id-section-1-0-a">Learning objectives<a class="anchor" id="section_1_0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python-and-what-are-jupyter-notebooks-a-class-anchor-id-section-1-1-a">What is Python? And what are Jupyter Notebooks? <a class="anchor" id="section_1_1"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-kernel-has-a-memory-a-class-anchor-id-sub-section-1-1-1-a">The Python kernel has a memory<a class="anchor" id="sub_section_1_1_1"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-and-stopping-the-kernel-a-class-anchor-id-sub-section-1-1-2-a">Starting and stopping the kernel<a class="anchor" id="sub_section_1_1_2"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-variable-types-a-class-anchor-id-section-1-2-a">Python variable types<a class="anchor" id="section_1_2"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-lists-tuples-span-a-class-anchor-id-sub-section-1-2-1-a"><span style="color:red">Lists &amp; Tuples</span><a class="anchor" id="sub_section_1_2_1"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-numpy-arrays-span-a-class-anchor-id-sub-section-1-2-2-a"><span style="color:red">Numpy Arrays</span><a class="anchor" id="sub_section_1_2_2"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-converting-variables-between-different-types-span-a-class-anchor-id-sub-section-1-2-3-a"><span style="color:red">Converting variables between different types</span><a class="anchor" id="sub_section_1_2_3"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-names-of-variables-span-a-class-anchor-id-sub-section-1-2-4-a"><span style="color:red">Names of variables</span><a class="anchor" id="sub_section_1_2_4"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-can-do-math-a-class-anchor-id-section-1-3-a">Python can do math<a class="anchor" id="section_1_3"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-data-to-python-using-input-a-class-anchor-id-section-1-4-a">Sending data to Python using input()<a class="anchor" id="section_1_4"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tab-completion-in-jupyter-notebooks-a-class-anchor-id-section-1-5-a">Tab completion in Jupyter Notebooks<a class="anchor" id="section_1_5"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-python-errors-a-class-anchor-id-section-1-6-a">Understanding Python Errors<a class="anchor" id="section_1_6"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-to-exercises-a-class-anchor-id-section-1-7-a">Solutions to Exercises<a class="anchor" id="section_1_7"></a></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nb1-python-for-physicists-an-introduction">
+<h1>NB1: Python for physicists, an introduction<a class="headerlink" href="#nb1-python-for-physicists-an-introduction" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><span class="xref myst">Learning objectives</span></p></li>
+<li><p><span class="xref myst">What is Python? And what are Jupyter Notebooks?</span></p>
+<ul>
+<li><p><span class="xref myst">The Python kernel has a memory</span></p></li>
+<li><p><span class="xref myst">Starting and stopping the kernel</span></p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Python variable types</span></p>
+<ul>
+<li><p><span class="xref myst">Lists &amp; Tuples</span></p></li>
+<li><p><span class="xref myst">Numpy Arrays</span></p></li>
+<li><p><span class="xref myst">Converting variables between different types</span></p></li>
+<li><p><span class="xref myst">Names of variables</span></p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Python can do math</span></p></li>
+<li><p><span class="xref myst">Sending data to Python using input()</span></p></li>
+<li><p><span class="xref myst">Tab completion in Jupyter Notebooks</span></p></li>
+<li><p><span class="xref myst">Understanding Python Errors</span></p></li>
+<li><p><span class="xref myst">Solutions to Exercises</span></p></li>
+</ul>
+<section id="pre-post-test-a-class-anchor-id-section-0-0-a">
+<h2>Pre/Post-test<a class="anchor" id="section_0_0"></a><a class="headerlink" href="#pre-post-test-a-class-anchor-id-section-0-0-a" title="Permalink to this heading">#</a></h2>
+<p>This test is for testing your current skills in Python. You can use it in two ways:</p>
+<ul class="simple">
+<li><p>pre-test: to test your skills beforehand. If you are already proficient in Python, and can do this test within approximately 15 minutes, you can scan through this notebook rather than carefully reading each sentence.</p></li>
+<li><p>post-test: to test your skills after Notebook 1. Check whether you learned enough.</p></li>
+</ul>
+</section>
+<section id="fixing-python-errors-in-a-database">
+<h2>Fixing Python errors in a database<a class="headerlink" href="#fixing-python-errors-in-a-database" title="Permalink to this heading">#</a></h2>
+<p>Eric has recently taken up a new job at the University. His first job is to work on the TU database. As the previous programmer was a lazy basterd, the code has many flaws. Yes…. your job is to fix these.</p>
+<p>In the TU database information on the building locations are stored. However, when printing the information, errors are reported (see below).</p>
+<p><strong>1)</strong> Fix the errors so that the information is printed correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Street_name</span> <span class="o">=</span> <span class="s1">&#39;Lorentzweg &#39;</span>
+<span class="n">Number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Full_adress</span> <span class="o">=</span> <span class="n">Street_name</span> <span class="o">+</span> <span class="n">Number</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Full_adress</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">Street_name</span> <span class="o">=</span> <span class="s1">&#39;Lorentzweg &#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Full_adress</span> <span class="o">=</span> <span class="n">Street_name</span> <span class="o">+</span> <span class="n">Number</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">Full_adress</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of, via live programming:</p>
+<iframe src="lite/repl/index.html?kernel=xeus-python&toolbar=0&theme=JupyterLab%20Light&code=%20Street_name%20%3D%20%27Lorentzweg%20%27%0A%20Number%20%3D%201%0A%20Full_adress%20%3D%20Street_name%20%2B%20Number%0A%0A%20print%28Full_adress%29"width="100%" height="400px" class="jupyterlite_sphinx_raw_iframe"></iframe><p>In building a larger database, Eric decides to store the data in a different way, much more convenient than the use of multiple dubious variable names. Below, a first attempt is made. However, due to a typo, one address needs to be changed. But the method used to fix the problem is not working.</p>
+<p><strong>2)</strong> Explain why it is not working in this way.</p>
+<p><strong>3)</strong> Fix the error(s).</p>
+<p><strong>4)</strong> Explain why the chosen type, written by the former programmer, is not completely nonsense.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Building</span> <span class="o">=</span> <span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">58</span><span class="p">)</span>
+<span class="n">Streetname</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Lorentzweg &#39;</span><span class="p">,</span> <span class="s1">&#39;Van der Maasweg &#39;</span><span class="p">)</span>
+<span class="n">Number</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
+<span class="n">Number</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;9&#39;</span>
+
+<span class="n">Full_adress</span> <span class="o">=</span> <span class="n">Building</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Streetname</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Number</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Full_adress</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of, via live programming:</p>
+<iframe src="lite/repl/index.html?kernel=xeus-python&toolbar=0&theme=JupyterLab%20Light&code=%20Building%20%3D%20%2822%2C58%29%0A%20Streetname%20%3D%20%28%27Lorentzweg%20%27%2C%20%27Van%20der%20Maasweg%20%27%29%0A%20Number%20%3D%20%28%271%27%2C%278%27%29%0A%20Number%5B1%5D%20%3D%20%279%27%0A%0A%20Full_adress%20%3D%20Building%5B1%5D%20%2B%20Streetname%5B1%5D%20%2B%20Number%5B1%5D%0A%20print%28Full_adress%29"width="100%" height="400px" class="jupyterlite_sphinx_raw_iframe"></iframe></section>
+<section id="learning-objectives-a-class-anchor-id-section-1-0-a">
+<h2>Learning objectives<a class="anchor" id="section_1_0"></a><a class="headerlink" href="#learning-objectives-a-class-anchor-id-section-1-0-a" title="Permalink to this heading">#</a></h2>
+<p>Python has become the standard programming language in physics research. To teach you the basics of programming (in Python) we have prepared six notebooks for you, each notebook focussing on a different aspect. The first three notebooks relate to the basics of programming. Notebook 4 and 5 relate to data-analysis in physics using Python. The last notebook focusses on the statistics related to measurement uncertainty.</p>
+<p>In this course, you will work using a platform called “Jupyter Notebooks”. Jupyter notebooks are a way to combine formatted text (like the text you are reading now), Python code (which you will use below), and the result of your code and calculations all in one place. Go through these notebooks and run the examples. Try to understand their functioning and, if necessary, add code (such as print statements or variable overviews) to make it clear for you. In addition, there are exercises and practice cells where you can program for yourself. Don’t be afraid to start coding yourself: writing code and making mistakes is the best way to learn Python.</p>
+<p>In this notebook, you will learn the basic concepts of programming in Python. To get started, we will first explain the basic concepts of what Python is and how it works.</p>
+<p>After completing this notebook, you are able to:</p>
+<ul class="simple">
+<li><p>start the python interpreter and run code in a notebook</p></li>
+<li><p>stop and start notebook kernels</p></li>
+<li><p>create variables</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">%whos</span></code> to list the variables stored in the memory of the python kernel</p></li>
+<li><p>determine the type of a variable</p></li>
+<li><p>convert between different variable types (float, int, etc)</p></li>
+<li><p>collect user input using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> command</p></li>
+<li><p>print variable values using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command</p></li>
+<li><p>use list, tuples and np.arrays and understand the differences</p></li>
+<li><p>combine arrays and insert data</p></li>
+</ul>
+<p>We have embedded various YouTube clips in the first notebooks, which are <strong>NOT</strong> required to watch (we even recommend to not look at these videos because these are time consuming!) but might provide additional help and information when necessary. The last two notebooks include prerecorded lectures that we recommend to watch.</p>
+<p>The solutions for the exercises in this notebook, and future ones, can be found at the bottom of the notebook, so that you can check your answer or have a peek if you are getting stuck. But don’t look too quickly… thinking about how to solve a problem rather than solving it using the answers is much more educational!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;bxWrXhLFN2s&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;HW29067qVWk&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="what-is-python-and-what-are-jupyter-notebooks-a-class-anchor-id-section-1-1-a">
+<h2>What is Python? And what are Jupyter Notebooks? <a class="anchor" id="section_1_1"></a><a class="headerlink" href="#what-is-python-and-what-are-jupyter-notebooks-a-class-anchor-id-section-1-1-a" title="Permalink to this heading">#</a></h2>
+<p>Python is an (<a href=https://en.wikipedia.org/wiki/Interpreted_language>interpreted</a>) computer programming language. Using Python, you can ask your computer to do specific things, like perform a calculation, draw a graph, load data from a file, or interact with the user.</p>
+<p>Every time you run Python, either by running it on the command line, or by running it in a Jupyter notebook like you are now, a Python <strong>“kernel”</strong> is created. This kernel is a copy of the Python program (“interpreter”) that runs continuously on your computer (until you stop it).</p>
+<p>Jupyter notebooks are a way to interact with the Python kernel. Notebooks are divided up into “cells”, which can be either a text cell (in a special text formatting language called <a href=https://en.wikipedia.org/wiki/Markdown>markdown</a>), like the one you are reading now. There are also code cell  (containing your code), like the cell below it.</p>
+<p>The selected cell is surrounded by a box. If you press “ENTER” in a text cell you can start editing the cell. If you push “Run” above, or push “Shift-Enter”, the code will be “run”. If it is a code cell, it will run a command (see below). If it is a markdown cell, it will “compile” the markdown text language into formatted (HTML) text.</p>
+<p>You can give commands to this kernel by typing commands using the Python language into the code cells of the notebook. Here, you can find an example of a code cell that contains a simple Python command <code class="docutils literal notranslate"><span class="pre">print</span></code>, which prints a text string to the command line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To send this command to the Python kernel, there are several options. First, select the cell (so that it is either blue or green), and then:</p>
+<ol class="arabic simple">
+<li><p>Click on the <strong>Run</strong> button above in the toolbar. This will execute the cell and move you to the next cell.</p></li>
+<li><p>Push <strong>Shift-Enter</strong>: this will do the same thing</p></li>
+<li><p>Push <strong>Control-Enter</strong>: this will run the cell but leave it selected (useful if you want to re-run a cell a bunch of times)</p></li>
+</ol>
+<p>When you run the cell, the code will be sent to the Python kernel, which will translate your Python command into a binary language your computer CPU understands, send it to the CPU, and read back the answer. If the code you run produces an “output”, meaning that the kernel will send something back to you, then the output that your code produces will be displayed below the code cell in the “output” section of the code cell. This is a scheme of what this process looks like “behind the scenes”:</p>
+<p style="text-align:center;"><img width=60% src="Figures/Python/Notebook_1_behind_the_scenes.png"></img></p>
+<p>After you have run the code cell, a number will appear beside your code cell. This number tells you in which order that piece of code was sent to the kernel. Because the kernel has a “memory”, as you will see in the next section, this number can be useful so that you remember in which order the code cells in your notebook were executed.</p>
+<p>In the example above, the code cell contains only a single line of code, but if you want, you can include as many lines as you want in your code cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the above, the text in the code cell are all Python commands. In addition, if you start a line in a code cell with a <code class="docutils literal notranslate"><span class="pre">#</span></code>, Python will ignore this line of text. This is used to add <strong>comments</strong> to your code. It is good programming practice to use comments to explain what the code is doing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will print out a message</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It might be hard at first to write proper comments. The comments should be short but still add information that is of value. One can question the value of the comment above as it hardly adds information to what the code is already saying… Some more information can be found here: <a class="reference external" href="https://stackabuse.com/commenting-python-code/">https://stackabuse.com/commenting-python-code/</a>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.1</span></code></strong> <br />
+Print your own string to the command line. Can you print special characters as well?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+</pre></div>
+</div>
+<section id="the-python-kernel-has-a-memory-a-class-anchor-id-sub-section-1-1-1-a">
+<h3>The Python kernel has a memory<a class="anchor" id="sub_section_1_1_1"></a><a class="headerlink" href="#the-python-kernel-has-a-memory-a-class-anchor-id-sub-section-1-1-1-a" title="Permalink to this heading">#</a></h3>
+<p>In addition to asking Python to do things for you, like the “Hello world” example above, you can also have Python remember things for you. To do this, you can use the following syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>In Python, the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol represents the <strong>assignment operator</strong>: it is an instruction to <strong>assign</strong> the value of <code class="docutils literal notranslate"><span class="pre">5</span></code> to the variable <code class="docutils literal notranslate"><span class="pre">a</span></code>. If variable <code class="docutils literal notranslate"><span class="pre">a</span></code> already exists, it will be over-written with the new value (in fact, <code class="docutils literal notranslate"><span class="pre">a</span></code> is a Python object). If variable <code class="docutils literal notranslate"><span class="pre">a</span></code> does not yet exist, then Python will create a new variable for you automatically.</p>
+<p>For you, the cell above will create a “variable” named <code class="docutils literal notranslate"><span class="pre">a</span></code> in memory of the Python kernel that has the value of 5. We can check this by printing the value of a:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Besides numerical values variables can also be strings, which are sequences of characters. You make a string by putting the text between quotes, as seen above in “Hello World”.</p>
+<p>Note that we can also add a message if we add a string and a numerical value in the <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement by combining things with commas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of a is&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.2</span></code></strong> <br />
+Combine multiple strings and numerical values in a single <code class="docutils literal notranslate"><span class="pre">print</span></code> statement using the <code class="docutils literal notranslate"><span class="pre">,</span></code> separator.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.3</span></code></strong> <br />
+Change the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> to 7 by executing the following cell, and then re-run the <strong>above</strong> cell containing the command <code class="docutils literal notranslate"><span class="pre">print(a)</span></code> (the one with output <code class="docutils literal notranslate"><span class="pre">5</span></code>). What value gets printed now in that cell?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+</pre></div>
+</div>
+<p>As you can see in notebooks that the location of your code doesn’t matter, but the order in which you execute them does!!</p>
+<p>We can also use variables to set the values of other variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A ‘funny’ thing happens with the command <strong>b = a</strong>. As we say that b and a are the same, rather than creating a new spot in the memory where the information is stored, the variables <strong>b</strong> and <strong>a</strong> obtain the same <em>memory address</em>. If we call upon <strong>a</strong>, Python searches its memory, and obtains the data stored at that  unique id. We can see this using <strong>id</strong> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This is important to know because if we say <strong>a = b</strong> and we change the value of <strong>b</strong>, the value of <strong>a</strong> changes as well! We will go into more detail later on.</p>
+<p>Sometimes, if you execute a lot of cells, or maybe even re-execute a cell after changing its contents, you might lose track of what variables are defined in the memory of your Python kernel. For this, there is a convenient built-in “magic” command called <code class="docutils literal notranslate"><span class="pre">%whos</span></code> that can list for you all the variables that have been defined in your kernel, along with their values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">5</span> 
+<span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+<p><em>(Some notes about <code class="docutils literal notranslate"><span class="pre">%whos</span></code>: <code class="docutils literal notranslate"><span class="pre">%whos</span></code> is not a “native” command of the Python language, but instead a “built-in” command that has been added by the creators of Jupyter. Because of this, you cannot use it outside of Jupyter / iPython…)</em></p>
+<p>If we define some new variables, they will also appear in the list of defined variables if you execute <code class="docutils literal notranslate"><span class="pre">%whos</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">15.5</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+<p>In this case the variables’ names are displayed, their values, but also their type. Type defines the format in which a variable is stored in memory. In this case <code class="docutils literal notranslate"><span class="pre">int</span></code> stands for integer and <code class="docutils literal notranslate"><span class="pre">float</span></code> stands for floating point number, which is the usual way in which real numbers are stored in a computer. We will learn more about Python variable types below.</p>
+</section>
+<section id="starting-and-stopping-the-kernel-a-class-anchor-id-sub-section-1-1-2-a">
+<h3>Starting and stopping the kernel<a class="anchor" id="sub_section_1_1_2"></a><a class="headerlink" href="#starting-and-stopping-the-kernel-a-class-anchor-id-sub-section-1-1-2-a" title="Permalink to this heading">#</a></h3>
+<p>When you open a notebook for the first time, a new kernel will be started for you, which will have nothing in its memory.</p>
+<p>Important to understand: if you close the tab of your browser that has the notebook, Jupyter <strong>will not</strong> shut down the kernel! It will leave the kernel running and when you re-open the notebook in your browser, all the variables you defined will still be in the memory. You can test this by closing this notebook right now, clicking on the link to open it in the “tree” file browser tab of Jupyter, and then re-running the cell above with the command <code class="docutils literal notranslate"><span class="pre">%whos</span></code>.</p>
+<p>How do I shutdown a kernel? And how do I know if a notebook on my computer already has a kernel running?</p>
+<ul class="simple">
+<li><p>First, as you may have noticed, when you closed this notebook and went back to the “tree” file browser, the notebook icon had turned green. This is one way that Jupyter tells you that a notebook file has a running kernel.</p></li>
+<li><p>Second: in the <a href="."> “tree” view </a> of the Jupyter interface, there is a link at the top to a tab “Running” that will show you all the running kernels and allow you to stop them manually.</p></li>
+</ul>
+<p>Sometimes, you may want to restart the kernel of a notebook you are working on. You may want to do this to clear all the variables and run all your code again from a “fresh start” (<strong>which you should always do before submitting an assignment!!!! Kill the kernel, run all cells and kill the kernel again. Any errors show up directly</strong>). You may also need to do this if your kernel crashes (the “status” of your kernel can be seen in the icons at the right-hand side of the Jupyter menu bar at the top of the screen).</p>
+<p>For this, there is both a menubar “Kernel” at the top, along with two useful buttons in the toolbar:</p>
+<ul class="simple">
+<li><p>“Stop”: tells the kernel to abort trying to run the code it is working on, but does not erase its memory</p></li>
+<li><p>“Restart”: “kill” the kernel (erasing its memory), and start a new one attached to the notebook.</p></li>
+</ul>
+<p style="text-align:center;"><img src="Figures/Python/Notebook_1_stop_button.png" width=20%></img>
+<img src="Figures/Python/Notebook_1_restartkernelmenu.png" width=60%></img></p>
+<p>To see this in action, you can execute the following cell, which will do nothing other than wait for one minute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will notice that while a cell is running, the text beside it shows <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[*]:</span></code>. The <code class="docutils literal notranslate"><span class="pre">*</span></code> indicates that the cell is being executed, and will change to a number when the cell is finished. You will also see that the small circle beside the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> text on the right side of the Jupyter menu bar at the top of the page will become solid. Unless you have a lot of patience, you should probably stop the kernel, using the “Stop” button, or the menu item “Kernel / Interrupt”.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.4</span></code></strong> <br />
+List the stored variables using the <code class="docutils literal notranslate"><span class="pre">%whos</span></code> command. Subsequently, restart the kernel. What variables are stored in the memory of the kernel before and after the restart?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-variable-types-a-class-anchor-id-section-1-2-a">
+<h2>Python variable types<a class="anchor" id="section_1_2"></a><a class="headerlink" href="#python-variable-types-a-class-anchor-id-section-1-2-a" title="Permalink to this heading">#</a></h2>
+<p>As we saw above, in Python, variables have a property that is called their “type”. When you use the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> to assign a value to a variable, Python will automatically pick a variable type it thinks fits best, even changing the type of an existing variable if it thinks it is a good idea.</p>
+<p>You have, in fact, already seen information about the types of variables in the <code class="docutils literal notranslate"><span class="pre">%whos</span></code> command again:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+<p>In the second column, you can see the <strong>type</strong> that Python chose for the variables we created. <code class="docutils literal notranslate"><span class="pre">int</span></code> corresponds to integer numbers, <code class="docutils literal notranslate"><span class="pre">float</span></code> corresponds to floating-point numbers. You can see that for variable <code class="docutils literal notranslate"><span class="pre">c</span></code>, Python had to choose a <code class="docutils literal notranslate"><span class="pre">float</span></code> type (because 15.5 is not an integer), but for <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, it chose integer types.</p>
+<p><em>(In general, Python tries to choose a variable type that makes calculations the fastest and uses as little memory as possible.)</em></p>
+<p>If you assign a new value to a variable, it can change the variables type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Because 5/2 = 2.5, Python decided to change the type of variable <code class="docutils literal notranslate"><span class="pre">a</span></code> from <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code> after the assignment operation <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a/2</span></code>.</p>
+<p>When you are using floating point numbers, you can also use an “exponential” notation to specify very big or very small numbers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.5e-8</span>
+</pre></div>
+</div>
+<p>The notation <code class="docutils literal notranslate"><span class="pre">1.5e-8</span></code> is a notation used in python to indicate the number <span class="math notranslate nohighlight">\(1.5 \times 10^{-8}\)</span>.</p>
+<p>A third type of mathematical variable type that you may use in physics is a complex number. In Python, you can indicate a complex number by using <code class="docutils literal notranslate"><span class="pre">1j</span></code>, which is the Python notation for the complex number <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The notation <code class="docutils literal notranslate"><span class="pre">1j</span></code> is special, in particular because there is <strong>no space</strong> between the number <code class="docutils literal notranslate"><span class="pre">1</span></code> and the <code class="docutils literal notranslate"><span class="pre">j</span></code>. This is how Python knows that you are telling it to make a complex number (and not just referring to a variable named <code class="docutils literal notranslate"><span class="pre">j</span></code>…). The number in front of the <code class="docutils literal notranslate"><span class="pre">j</span></code> can be any floating point number. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.5</span><span class="n">j</span>
+</pre></div>
+</div>
+<p>In addition to the mathematical variable types listed above, there are also other types of variables in Python. A common one you may encounter is the “string” variable type <code class="docutils literal notranslate"><span class="pre">str</span></code>, which is used for pieces of text. To tell Python you want to make a string, you enclose the text of your string in either single forward quotes <code class="docutils literal notranslate"><span class="pre">'</span></code> or double forward quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;This is a string&quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;This is also a string&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also make multiline strings using three single quotes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multi</span> <span class="o">=</span> \
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This string</span>
+<span class="sd">has </span>
+<span class="sd">multiple lines.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multi</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note here that I have used a backslash: this a way to split Python code across multiple lines.</p>
+<p>Although it’s not obvious, Python can also do “operations” on strings, the <code class="docutils literal notranslate"><span class="pre">+</span></code> mathematical operators we saw above also works with strings.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.5</span></code></strong> <br />
+Discover what the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator does to a string, i.e. print the output of the sum of two strings.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+<p>A useful variable type we will introduce here is the “boolean” type <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A boolean variable can have two values: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. You type them in directly as <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> with no quotes (you will see them turn green).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will use boolean types much more later when we look at program control flow, but a simple example using the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is given below:</p>
+<p>No panic if you don’t yet understand the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, there will be another entire notebook dedicated to them. This is  just  an example of why  boolean variables  exist.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True is always true.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">g</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g is true!&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="ow">not</span> <span class="n">g</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g is not true!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can try changing the value of <code class="docutils literal notranslate"><span class="pre">g</span></code> above to <code class="docutils literal notranslate"><span class="pre">False</span></code> and see what happens if you run the above code cell again.</p>
+<p>Also, useful to know: numbers (both <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code>) can also be used in True / False statements! Python will interpret any number that is not zero as <code class="docutils literal notranslate"><span class="pre">True</span></code> and any number that is zero as <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.6</span></code></strong> <br />
+Discover which <em>numbers</em> can be used as <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> in Python by changing the value of <code class="docutils literal notranslate"><span class="pre">g</span></code> above and re-running the cells.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="nb">input</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">VideoWidth</span><span class="o">=</span><span class="mi">600</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;khKv-8q7YmY&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">VideoWidth</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Cell In[1], line 1
+    ```{code-cell} ipython3
+    ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;W8KRzm-HUcc&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="span-style-color-red-lists-tuples-span-a-class-anchor-id-sub-section-1-2-1-a">
+<h3><span style="color:red">Lists &amp; Tuples</span><a class="anchor" id="sub_section_1_2_1"></a><a class="headerlink" href="#span-style-color-red-lists-tuples-span-a-class-anchor-id-sub-section-1-2-1-a" title="Permalink to this heading">#</a></h3>
+<p>It often happens that you want to store data that belong together (a collection of items). You have different options, we discuss lists &amp; tuples, and subsequent (for numerical purposes) numpy arrays.</p>
+<p>Let us think of storing personal data where we need to know: First name; Family name; Address; City. We then can make a list, see below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Person_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Feek&#39;</span><span class="p">,</span><span class="s1">&#39;Pols&#39;</span><span class="p">,</span><span class="s1">&#39;Lorentzweg&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Delft&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Person_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Person_1</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">Person_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">type</span><span class="p">(</span><span class="n">Person_1</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>It is interesting to see that Person_1 is a list and that within the list other types exist (Note: the first item is referred to by 0 as computers start to count at 0). If we make a mistake, we can replace an item in the list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Person_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Freek&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Person_1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another way we can store data is using a tuple, see below. Note that the only difference with a list is the use of the brackets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Person_2</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Erik&#39;</span><span class="p">,</span><span class="s1">&#39;Janssen&#39;</span><span class="p">,</span><span class="s1">&#39;Lorentzweg&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Delft&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Person_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Person_2</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">Person_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">type</span><span class="p">(</span><span class="n">Person_2</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>So, what is the difference then between a list and a tuple? The most important difference is that tuples are immutable, you cannot change them:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Person_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jansen&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the example above, something strange happens. We did not change <strong>a</strong>, did we? But remember that <strong>b</strong> is not a copy of <strong>a</strong> with a new location in the memory. Rather than that, <strong>b</strong> obtains the same location in the memory (you can check with id(a)). If we change <strong>b</strong>, we thus change <strong>a</strong>! We can also make tuples with only a single item stored. We have to make use of a comma, otherwise Python will not recognize it as a tuple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#not a tuple</span>
+<span class="n">n_a_t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#a tuple</span>
+<span class="n">a_t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+
+<span class="c1">#checking</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">n_a_t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_t</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Lists are mutable and are thus called variables. However, a tuple cannot be varied and is thus not a variable. It is called an object. Since it is immutable, it requires less space. We can still make effective use of tuples (and lists):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.7</span></code></strong> <br />
+Try to change the first value of <strong>b</strong>. In order to do so, make sure <strong>b</strong> becomes a list! You can make use of b = list(a).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-numpy-arrays-span-a-class-anchor-id-sub-section-1-2-2-a">
+<h3><span style="color:red">Numpy Arrays</span><a class="anchor" id="sub_section_1_2_2"></a><a class="headerlink" href="#span-style-color-red-numpy-arrays-span-a-class-anchor-id-sub-section-1-2-2-a" title="Permalink to this heading">#</a></h3>
+<p>Until now, the variable types we have been working with in Python represent relatively simple data types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: integer numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: floating point numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex</span></code>: complex-valued floating point numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: boolean “truth” values (which can have <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: strings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: mutuable list of variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>: immutuable list of variables</p></li>
+</ul>
+<p>The first four are very simple data types, but actually the last one is more complicated than it looks . The <code class="docutils literal notranslate"><span class="pre">list</span></code> is a vector like-variable type. However, unlike physical vectors, it cannot be multiplied, subtracted, etc.</p>
+<p>Here, we will introduce a new datatype that is handy for Physics calculations and that comes from the Python software package <a href=https://numpy.org>numpy</a> called <strong>numpy arrays</strong>.</p>
+<p><em>What are numpy arrays?</em></p>
+<p>Numpy arrays are a way to work in Python with not just single numbers, but a whole bunch of numbers. With numpy arrays these numbers can be manipulated just like you do in, for example, linear algebra when one works with vectors:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Row_and_column_vectors">https://en.wikipedia.org/wiki/Row_and_column_vectors</a></p>
+<p>For example, a (column) vector <span class="math notranslate nohighlight">\(\vec{a}\)</span> with 5 entries might look like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{a} = \begin{bmatrix}
+1 \\
+2 \\
+3 \\
+4 \\
+5
+\end{bmatrix}
+\end{split}\]</div>
+<p>In linear algebra you are used to manipulate these vectors, this can be done in a similar way with numpy arrays. We will use numpy arrays extensively in Python as vectors, like above, but also for storing, manipulating, and analyzing datasets (like a column of an excel spreadsheet).</p>
+<p>To use numpy arrays, we first need to import the numpy library, which we will do using the shortened name “np” (to save typing):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>Now that we have imported numpy, we can use functions in numpy to create a numpy array. A simple way to do this is to use the function np.array() to make a numpy array from a comma-separated list of numbers in square brackets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note  that numpy does not make a distinction between row vectors and column vectors: they are just vectors. But what if we want an array running from 0 to 100, and only the even numbers? Do we type all numbers? Certainly not! We can use for instance numpy’s linspace or arange:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array_evennr_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_evennr_1</span><span class="p">)</span>
+
+<span class="n">array_evennr_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_evennr_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note the difference between the two ways of making the array and their output!</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.8</span></code></strong> <br />
+Make a list and a numpy array in which the values 2, 3, 5 are stored. Multiply the list and array by the value 2 and print the outcome. What is the difference between the mathematical operation on the list and numpy array? Why do we, physicists, prefer numpy arrays?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#your code</span>
+
+</pre></div>
+</div>
+<p>In some cases we want to add items to our array or combine different arrays into a single one. There are different ways to do that. To combine to numpy arrays, we can make use of the concatenate function. To add items at the end of our array, we can use the append function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.9</span></code></strong> <br />
+Below we have made two arrays, one with even numbers and one with odd numbers. Combine these two arrays in a single array and sort them (see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html">https://numpy.org/doc/stable/reference/generated/numpy.sort.html</a>). Next, delete the third element in the array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">even_nr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_nr</span><span class="p">)</span>
+<span class="n">odd_nr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_nr</span><span class="p">)</span>
+<span class="c1">#your code</span>
+
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-converting-variables-between-different-types-span-a-class-anchor-id-sub-section-1-2-3-a">
+<h3><span style="color:red">Converting variables between different types</span><a class="anchor" id="sub_section_1_2_3"></a><a class="headerlink" href="#span-style-color-red-converting-variables-between-different-types-span-a-class-anchor-id-sub-section-1-2-3-a" title="Permalink to this heading">#</a></h3>
+<p>We can also convert a value from one type to another by using functions with the same name as the type that we want to convert them to. Some examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">7.63</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that when converting an <code class="docutils literal notranslate"><span class="pre">float</span></code> to an <code class="docutils literal notranslate"><span class="pre">int</span></code>, Python does not round off the value, but instead drops all the numbers off after the decimal point (it “truncates” it). If we want to convert to an integer and round it off, we can use the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mf">7.63</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mf">4.45</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">4.55</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There seems to be something odd happening here, as when we round to the first decimal number <strong>a</strong> and <strong>b</strong> obtain the same value. Why this happens is covered in the last two notebooks. It has to do with always rounding down or up results in a systematic error in the mean.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This works for conversions between many types. Sometimes, you will lose information in this process: for example, converting a <code class="docutils literal notranslate"><span class="pre">float</span></code> to an <code class="docutils literal notranslate"><span class="pre">int</span></code>, we lose all the numbers after the decimal point. In this example, Python makes a guess at what you probably want to do, and decides to round off the floating point number to the nearest integer.</p>
+<p>Sometimes, Python can’t decide what to do, and so it triggers an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A very useful feature is that Python can convert numbers into strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">7.54</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+<p>That is actually what happens when you use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> commands with a numeric value.</p>
+<p>But also very useful is that as long as your string is easily convertable to a number, Python can do this for you too! Note below that the quotation marks makes it a string!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;5.74&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;774&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">complex</span><span class="p">(</span><span class="s1">&#39;5+3j&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We even can convert immutable tuples to mutable lists, and back again.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.10</span></code></strong> <br />
+Define a list of parameters with as many types as possible, i.e. all the examples you see above and maybe a few more. Use <code class="docutils literal notranslate"><span class="pre">%whos</span></code> to see how they look inside the computers’ memory. Try to change their format and re-run the <code class="docutils literal notranslate"><span class="pre">%whos</span></code> command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your parameters list</span>
+<span class="n">a</span><span class="o">=</span>
+<span class="n">b</span><span class="o">=</span>
+
+<span class="c1"># Parameter formats in the computer</span>
+<span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-names-of-variables-span-a-class-anchor-id-sub-section-1-2-4-a">
+<h3><span style="color:red">Names of variables</span><a class="anchor" id="sub_section_1_2_4"></a><a class="headerlink" href="#span-style-color-red-names-of-variables-span-a-class-anchor-id-sub-section-1-2-4-a" title="Permalink to this heading">#</a></h3>
+<p>So far we have not talked about the names of variables. Throughout the notebook we used <em>a</em> and <em>b</em> for single variables, list, numpy arrays and so on. Each time the previous value is overwritten. Furthermore, what does <em>a</em> refers to? Is it acceleration, is it a test variable? We have no clue.</p>
+<p>If you want to be able to read your code next year, or if you want us to be able to read your code, you have to come up with proper names for your variables. We advice you to look at the YT-movie clip below as some conventions are clearly elaborated. Also, look at the PEP 8 – Style Guide for Python Code: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a>
+for more related tips and conventions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;Uw95Uc3xgWU&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-can-do-math-a-class-anchor-id-section-1-3-a">
+<h2>Python can do math<a class="anchor" id="section_1_3"></a><a class="headerlink" href="#python-can-do-math-a-class-anchor-id-section-1-3-a" title="Permalink to this heading">#</a></h2>
+<p>Python has a set of math functions that are directly built in to the language. You can use Python as a calculator!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>So from now on, don’t use your calculator or excel when working on calculations yourselves! Use Python!</p>
+<p>Calculations also work with variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.11</span></code></strong> <br />
+Discover what the following Python operators do by performing some math with them: <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>. Print the value of the mathematical operation to the command line in subsequent cells.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out *</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out -</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out /</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out **</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out //</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try out %</span>
+
+<span class="c1"># What did it do? Add your answer here:</span>
+</pre></div>
+</div>
+<p>Another handy built-in function is <code class="docutils literal notranslate"><span class="pre">abs()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You can find the full list of built-in math commands on the Python documentation webpage:</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex</a></p>
+</section>
+<section id="sending-data-to-python-using-input-a-class-anchor-id-section-1-4-a">
+<h2>Sending data to Python using input()<a class="anchor" id="section_1_4"></a><a class="headerlink" href="#sending-data-to-python-using-input-a-class-anchor-id-section-1-4-a" title="Permalink to this heading">#</a></h2>
+<p>So far, we have seen examples of “output”: Python telling us stuff, like in the first “Hello world” example above.</p>
+<p>And we have seen examples of “code”: us giving instructions to Python to do things.</p>
+<p>In addition, we can also send stuff to Python. Often in physics, we do this by having Python read data files, which we will cover later, but we can also send information to Python using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input was:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here something seemingly odd happens: even if we type a number into the input box, it will <em>always</em> return a string variable of type <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If we want to use our input as a number, we have to convert it to a number, for example, by using the <code class="docutils literal notranslate"><span class="pre">float()</span></code> function. Moreover, it might be handy to tell the user what he or she is supposed to do. You can specify text for the label of the input box:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The value of a is:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a has the type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>A very useful tool is string formatting (<a class="reference external" href="https://realpython.com/python-string-formatting/">https://realpython.com/python-string-formatting/</a>). We can tell Python that a number is comming, specify its type and later include the number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number given by the use is </span><span class="si">%.1f</span><span class="s1"> &#39;</span> <span class="o">%</span><span class="n">a</span><span class="p">)</span> <span class="c1">#prints 1 dec float</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number given by the use is </span><span class="si">%d</span><span class="s1"> &#39;</span> <span class="o">%</span><span class="n">a</span><span class="p">)</span> <span class="c1">#prints as integer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number given by the use is </span><span class="si">%e</span><span class="s1"> &#39;</span> <span class="o">%</span><span class="n">a</span><span class="p">)</span> <span class="c1">#prints with scientific notation</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.12</span></code></strong> <br />
+Use the <code class="docutils literal notranslate"><span class="pre">input</span></code> function to get parameters of integer, float and string format into the computer. Have Python check whether the proper type is assigned.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="tab-completion-in-jupyter-notebooks-a-class-anchor-id-section-1-5-a">
+<h2>Tab completion in Jupyter Notebooks<a class="anchor" id="section_1_5"></a><a class="headerlink" href="#tab-completion-in-jupyter-notebooks-a-class-anchor-id-section-1-5-a" title="Permalink to this heading">#</a></h2>
+<p>Computer programmers often forget things, and often they forget what variables they have defined. Also, computer programmers always like to save typing if they can.</p>
+<p>For this reason, the people who made Jupyter notebooks included a handy feature called “TAB completion” (which is actually something that has been around for <a href=https://en.wikipedia.org/wiki/Command-line_completion>a long time</a> in unix and ms-dos command line environments).</p>
+<p>The idea is that if you start typing part of the name of a variable or part of the name of a function, and then push the <code class="docutils literal notranslate"><span class="pre">TAB</span></code> key, Jupyter will bring up a list of the variable and function names that match what you have started to type. If only one matches, it will automatically type the rest for you. If multiple things match, it will offer you a list: you can either keep typing until it’s unique and press TAB again, or you can use the cursor keys to select the one you want.</p>
+<p>Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">this_is_my_very_long_variable_name</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">this_is_another_ones</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<p>Now click on the following code cell, go the end of the lines in this cell and try pushing <code class="docutils literal notranslate"><span class="pre">Tab</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">this_is_a</span>
+
+</pre></div>
+</div>
+<p>Handy! Jupyter did the typing for me!</p>
+<p>If multiple things match, you will get a drop-down box and can select the one you want. So press <code class="docutils literal notranslate"><span class="pre">Tab</span></code> : after</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">this_is</span>
+</pre></div>
+</div>
+<p>You can also keep on typing: if you just type <code class="docutils literal notranslate"><span class="pre">a</span></code> after you hit tab and then hit tab again, it will finish the typing for you.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.13</span></code></strong></p>
+<p>Use tab completion on the initial letters of a few of the commands that have been presented. Along the way you will discover many more Python commands!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="understanding-python-errors-a-class-anchor-id-section-1-6-a">
+<h2>Understanding Python Errors<a class="anchor" id="section_1_6"></a><a class="headerlink" href="#understanding-python-errors-a-class-anchor-id-section-1-6-a" title="Permalink to this heading">#</a></h2>
+<p>Sometimes, the code you type into a code cell will not work. In this case, Python will not execute your code, but instead print out an error message. In this section, we will take a look at these error messages and learn how to understand them.</p>
+<p>Let’s write some code that will give an error. For example, this is a typo in the name of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">printt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After your code cell, you will see some colored text called a “Traceback”. This “Traceback” is the way that Python tries to tell you where the error is.</p>
+<p>Let’s take a look at the traceback:</p>
+<p style="text-align:center;"><img src="Figures/Python/Notebook_1_anatomy_of_an_error.png" width=60%></img></p>
+<p>The traceback contains three important details that can help you:</p>
+<ol class="arabic simple">
+<li><p>The type of error</p></li>
+<li><p>Where the error occurred in your code</p></li>
+<li><p>An attempt to explain why the error happened</p></li>
+</ol>
+<p>For 1 and 2, Python is pretty good and will communicate clearly. For 3, sometimes you need to have some experience to understand what python is trying to tell you.</p>
+<p>In this specific case, the type was a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> that occured on line 2 of our code cell.
+<em>(By the way, in the View menu, you can turn on and off line numbers in your cells.)</em></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">NameError</span></code> means that Python tried to find a function or variable that you have used, but failed to find one. If you look already at the line of code, you can probably spot the problem already.</p>
+<p>At the very end of the traceback, Python tries to explain what the problem was: in this case, it is telling you that there is no function named <code class="docutils literal notranslate"><span class="pre">printt</span></code>.</p>
+<p>You will also get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> if you try to use a variable that doesn’t exist:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">non_existant_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another common type of error is a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, which means you have typed something that Python does not understand:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>a = a $ 5
+</pre></div>
+</div>
+<p>You can also get errors if you try to use operators that do not work with the data type you have. For example, if you try to “divide” two strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;You cannot &quot;</span> <span class="o">/</span> <span class="s2">&quot;divide strings&quot;</span>
+</pre></div>
+</div>
+<p>Here, you get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>: the division operator is a perfectly fine syntax, it just does not work with strings.</p>
+<p>In Python, errors are also called “Exceptions”, and a complete list of all error (exception) types, and what they mean, can be found here:</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#concrete-exceptions">https://docs.python.org/3/library/exceptions.html#concrete-exceptions</a></p>
+<p>Sometimes, you can learn more about what the error means by reading these documents, although they are perhaps a bit hard to understand for beginners.</p>
+<p>In last resort, you can also always try a internet search: googling the error message can help, and there are also lots of useful posts on <a href=https://stackexchange.com>stack exchange</a> (which you will also often find by google).</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.14</span></code></strong> <br />
+Run the following code and try to understand what is going wrong by reading the error message.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">c</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">+</span> <span class="n">practicum</span><span class="o">*</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="s1">&#39;practicum is great&#39;</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>If you are not sure what to do, what the function was called or need some help, there are two handy tools. First, if you put a question mark (?id) before your variable or function, you get additional information.</p>
+<p>The other tool is to type your variable, put a dot behind it and autocomplete using tab. This will produce a dropdown menu with all the available actions that can be carried out.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.15</span></code></strong> <br />
+Try <strong>?%whos</strong> below and see what information is given.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Exercise</span> <span class="pre">1.16</span></code></strong> <br />
+Make a variable and an array. Use the second tool to find out what actions can be performed on the two different types.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="solutions-to-exercises-a-class-anchor-id-section-1-7-a">
+<h2>Solutions to Exercises<a class="anchor" id="section_1_7"></a><a class="headerlink" href="#solutions-to-exercises-a-class-anchor-id-section-1-7-a" title="Permalink to this heading">#</a></h2>
+<p><strong>Exercise 1.1</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can print special characters:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My first message #1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Another special character: one \ two&quot;</span><span class="p">)</span>
+
+<span class="c1"># However, there are some special combinations such as \n that have another meaning. </span>
+<span class="c1"># In this case, \n starts a new line.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Another special character: one </span><span class="se">\n</span><span class="s2"> two&quot;</span><span class="p">)</span>
+
+<span class="c1"># If we wish to print the text \n, we should add another \ to indicate that we do not.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Another special character: one </span><span class="se">\\</span><span class="s2">n two&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Exercise 1.2</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The value is&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Note that a space is added in between the string and the number.</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.3</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># this prints 5</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># this prints 7 as the current value of a is 7</span>
+
+</pre></div>
+</div>
+<p><strong>Exercise 1.4</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># After restarting the kernel all variables, such as a, are no longer stored and do not show up in %whos.</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.5</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the first string&#39;</span> <span class="o">+</span> <span class="s1">&#39;and this is the second string.&#39;</span><span class="p">)</span>
+<span class="c1"># The strings are joined.</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.6</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only 0 is False, some examples:</span>
+<span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;0 is True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;0 is False&#39;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1 is True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1 is False&#39;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="o">-</span><span class="mi">57</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-57 is True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-57 is False&#39;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="mi">6</span><span class="o">/</span><span class="mi">7</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;6/7 is True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;6/7 is False&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.7</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.8</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Multiplying the list is like adding the two lists such that it is repeated. </span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="c1"># Multiplying the numpy array multplies each value in the array.</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.9</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">even_nr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_nr</span><span class="p">)</span>
+<span class="n">odd_nr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_nr</span><span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">even_nr</span><span class="p">,</span> <span class="n">odd_nr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.10</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.11</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7*3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7-3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7/3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7**3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7//3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">//</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7%3 =&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.12</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can chech that the input is always a string.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;type input: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.13</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.14</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ZeroDivisionError: division by zero</span>
+<span class="c1"># You cannot divide by zero, so this results in an error.</span>
+
+<span class="c1"># NameError: name &#39;practicum&#39; is not defined</span>
+<span class="c1"># You cannot use an undefined variable, use a string to print text.</span>
+
+<span class="c1"># TypeError: can only concatenate str (not &quot;int&quot;) to str</span>
+<span class="c1"># You cannot add a string and an integer. We can add two strings: </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;practicum is great&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.15</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+<p><strong>Exercise 1.13</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+        <script type="text/x-thebe-config">
+        {
+            requestKernel: true,
+            binderOptions: {
+                repo: "executablebooks/jupyter-book",
+                ref: "master",
+            },
+            codeMirrorConfig: {
+                theme: "abcdef",
+                mode: "python"
+            },
+            kernelOptions: {
+                name: "python3",
+                path: "./."
+            },
+            predefinedOutput: true
+        }
+        </script>
+        <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="testnotebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">thebe-kernel: JupyterLite</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-post-test-a-class-anchor-id-section-0-0-a">Pre/Post-test<a class="anchor" id="section_0_0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-python-errors-in-a-database">Fixing Python errors in a database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-a-class-anchor-id-section-1-0-a">Learning objectives<a class="anchor" id="section_1_0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python-and-what-are-jupyter-notebooks-a-class-anchor-id-section-1-1-a">What is Python? And what are Jupyter Notebooks? <a class="anchor" id="section_1_1"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-kernel-has-a-memory-a-class-anchor-id-sub-section-1-1-1-a">The Python kernel has a memory<a class="anchor" id="sub_section_1_1_1"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-and-stopping-the-kernel-a-class-anchor-id-sub-section-1-1-2-a">Starting and stopping the kernel<a class="anchor" id="sub_section_1_1_2"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-variable-types-a-class-anchor-id-section-1-2-a">Python variable types<a class="anchor" id="section_1_2"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-lists-tuples-span-a-class-anchor-id-sub-section-1-2-1-a"><span style="color:red">Lists &amp; Tuples</span><a class="anchor" id="sub_section_1_2_1"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-numpy-arrays-span-a-class-anchor-id-sub-section-1-2-2-a"><span style="color:red">Numpy Arrays</span><a class="anchor" id="sub_section_1_2_2"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-converting-variables-between-different-types-span-a-class-anchor-id-sub-section-1-2-3-a"><span style="color:red">Converting variables between different types</span><a class="anchor" id="sub_section_1_2_3"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-names-of-variables-span-a-class-anchor-id-sub-section-1-2-4-a"><span style="color:red">Names of variables</span><a class="anchor" id="sub_section_1_2_4"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-can-do-math-a-class-anchor-id-section-1-3-a">Python can do math<a class="anchor" id="section_1_3"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-data-to-python-using-input-a-class-anchor-id-section-1-4-a">Sending data to Python using input()<a class="anchor" id="section_1_4"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tab-completion-in-jupyter-notebooks-a-class-anchor-id-section-1-5-a">Tab completion in Jupyter Notebooks<a class="anchor" id="section_1_5"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-python-errors-a-class-anchor-id-section-1-6-a">Understanding Python Errors<a class="anchor" id="section_1_6"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-to-exercises-a-class-anchor-id-section-1-7-a">Solutions to Exercises<a class="anchor" id="section_1_7"></a></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
