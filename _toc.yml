@@ -5,5 +5,3 @@ format: jb-book
 root: intro
 chapters:
 - file: jupyterlite-sphinx
-- file: testnotebook
-- file: Notebook_1

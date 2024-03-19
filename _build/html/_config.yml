@@ -24,9 +24,11 @@ sphinx:
   thebe_config:
     use_thebe_lite: true
     exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
-  local_extensions:
-    custom_lb: ./custom_lb
-  
+  extra_extensions:
+    - jupyterlite_sphinx
+  config:
+    html_extra_path: ["_config.yml"]
+
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib

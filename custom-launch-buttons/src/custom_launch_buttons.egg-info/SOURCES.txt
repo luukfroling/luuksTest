@@ -1,0 +1,9 @@
+MANIFEST.in
+pyproject.toml
+src/custom-launch-buttons/__init__.py
+src/custom-launch-buttons/static/custom.js
+src/custom_launch_buttons.egg-info/PKG-INFO
+src/custom_launch_buttons.egg-info/SOURCES.txt
+src/custom_launch_buttons.egg-info/dependency_links.txt
+src/custom_launch_buttons.egg-info/requires.txt
+src/custom_launch_buttons.egg-info/top_level.txt

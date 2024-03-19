@@ -1,0 +1,30 @@
+
+[
+    {
+        "type" : "single", 
+        "Text" : "WEB",
+        "Icon" : "",
+        "Link" : ""
+    },
+    {
+        "type" : "dropdown", 
+        "Text" : "LANG",
+        "Icon" : "",
+        "load" : {
+            [
+                {
+                    "type" : "single", 
+                    "Text" : "EN",
+                    "Icon" : "",
+                    "Link" : ""
+                },
+                {
+                    "type" : "single", 
+                    "Text" : "NL",
+                    "Icon" : "",
+                    "Link" : ""
+                }
+            ]
+        }
+    }
+  ]
