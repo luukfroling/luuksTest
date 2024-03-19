@@ -21,7 +21,7 @@ def copy_buttons(app: Sphinx, exc: None) -> None:
     
         yaml_to_json(launch_buttons_yaml, os.path.join(staticdir, '_launch_buttons.json'))
 
-        print(js_file, "nice hope this works first 2nd 3rd 4th 5th 6th change please! 7th go")
+        print(js_file, "nice hope this works first 2nd 3rd 4th 5th 6th change please! 7th 8th go")
 
         # Copy custom.js from static
         copy_asset_file(js_file, staticdir)
