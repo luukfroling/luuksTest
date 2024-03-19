@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let addButtons = (buttons) => {
-    // Log for developing
-    console.log(buttons)
     // Append launch buttons to the page
     buttons.forEach(function(button) {
         element = button.type == "dropdown" ? addDropdown(button) : addButton(button);
@@ -75,9 +73,7 @@ let addDropdown = (button) => {
         linkItem.href = b.url;
         if(b.icon != undefined){
             let icon = setSubIcon(b.icon)
-            console.log(icon)
             linkItem.appendChild(icon);
-            console.log(linkItem.innerHTML)
         } else {linkItem.innerHTML += "&#x2022;";}
         if(b.label != undefined) linkItem.innerHTML += " " + b.label;
 
